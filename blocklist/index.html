@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<style>
+			.container, h1 {
+				margin: 10px;
+				margin-bottom: 30px;
+			}
+			form > * {
+				padding-top: 10px;
+			}
+			input {
+				width: 100%;
+				padding: 15px;
+			}
+			textarea {
+				width: 100%;
+				border: none;
+			}
+			.comment {
+				border: 1px solid;
+				padding: 20px;
+			}
+		</style>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js" integrity="sha512-9khQRAUBYEJDCDVP2yw3LRUQvjJ0Pjx0EShmaQjcHa6AXiOv6qHQu9lCAIR8O+/D8FtaCoJ2c0Tf9Xo7hYH01Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-fTl/qcO1VgvKtOMApX2PdZzkziyr2stM65GYPLGuYMnuMm1z2JLJG6XVU7C/mR+E7xBUqCivykuhlzfqxXBXbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	</head>
+	<body>
+		<h1>HTML client-side sanitizer</h1>
+		<div class="container">
+			<form>
+				<div>
+					<h2>Enter your html here: </h2>
+					<span>You can try to insert this and see what will happen:</span>
+					<pre><code class="language-markup">&lt;p>&lt;img src="../magic.gif" onload="alert('Hello')">&lt;/p></code></pre>
+				</div>
+				<div>
+					<input name="html">
+				</div>
+				<div><button type="submit">Submit</button></div>
+			</form>
+		</div>
+		<div class="container">
+			<div>
+				<h3>Your string was: </h3>
+				<pre><code class="language-markup" id="original_html"></code></pre>
+			</div>
+			<div>
+				<h3>Sanitizing log:</h3>
+				<pre><code id="log"></code></pre>
+			</div>
+			<div>
+				<h3>Your sanitized html is: </h3>
+				<pre><code class="language-markup" id="result_html"></code></pre>
+			</div>
+			<div>
+				<h3>Sanitized rendered html is: </h3>
+				<div class='comment' id="rendered_html"></div>
+			</div>
+		</div>
+		<script src="custom.js"></script>
+	</body>
+</html>
